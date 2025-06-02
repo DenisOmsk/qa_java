@@ -4,7 +4,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
 import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -21,15 +23,22 @@ class LionTest {
 
     @Test
     void testGetKittens() throws Exception {
-        when(feline.getKittens()).thenReturn(1);
+
+        int expectedKittensCount = 1;
+        when(feline.getKittens(expectedKittensCount)).thenReturn(expectedKittensCount);
+
         Lion lion = new Lion("Самец", feline);
-        assertEquals(1, lion.getKittens());
+
+
+        assertEquals(expectedKittensCount, lion.getKittens(expectedKittensCount));
     }
 
     @Test
     void testGetFood() throws Exception {
         when(feline.getFood("Хищник")).thenReturn(List.of("Животные", "Птицы", "Рыба"));
+
         Lion lion = new Lion("Самец", feline);
+
         assertEquals(List.of("Животные", "Птицы", "Рыба"), lion.getFood());
     }
 }
