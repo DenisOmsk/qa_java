@@ -1,6 +1,8 @@
 import com.example.Feline;
 import org.junit.jupiter.api.Test;
+
 import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class FelineTest {
@@ -20,6 +22,8 @@ class FelineTest {
     @Test
     void getKittens() {
         Feline feline = new Feline();
-        assertEquals(1, feline.getKittens());
+        int expectedKittensCount = 1;
+        assertEquals(expectedKittensCount, feline.getKittens(expectedKittensCount));
     }
 }
+
